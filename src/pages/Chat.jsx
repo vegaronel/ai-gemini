@@ -131,7 +131,9 @@ export function Chat() {
           {loading ? "Sending..." : <SendHorizontal />}
         </Button>
       </form>
+   
     </CardFooter>
+   
   </Card>
   
   );
