@@ -76,7 +76,7 @@ export function Chat() {
   };
 
   return (
-    <Card className="w-full flex flex-col max-w-md mx-auto md:h-[600px] h-screen bg-slate-900 text-slate-100 border">
+    <Card className="w-full flex flex-col lg:max-w-lg md:max-w-lg  mx-auto md:h-[600px] h-[95vh] bg-slate-900 text-slate-100 border">
       <CardHeader>
         <CardTitle>ChatterBot</CardTitle>
       </CardHeader>
