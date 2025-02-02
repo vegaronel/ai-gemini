@@ -76,12 +76,12 @@ export function Chat() {
   };
 
   return (
-    <Card className="w-full flex flex-col lg:max-w-lg md:max-w-lg  mx-auto md:h-[600px] h-[95vh] bg-slate-900 text-slate-100 border">
+    <Card className="w-full flex flex-col lg:max-w-lg md:max-w-lg  mx-auto  bg-slate-900 text-slate-100 border">
       <CardHeader>
         <CardTitle>ChatterBot</CardTitle>
       </CardHeader>
       <CardContent className="grow">
-        <ScrollArea className="pr-4">
+        <ScrollArea className="h-[85vh] md:h-[500px] pr-4">
           {messages.map((message) => (
             <div
               key={message.id}

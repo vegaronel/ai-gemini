@@ -3,7 +3,7 @@ import "./App.css";
 import { Chat } from './pages/Chat';
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950 flex justify-center lg:items-center">
+    <div className="min-h-screen bg-slate-950 flex justify-center md:items-center">
     <Chat />
   </div>
   )
