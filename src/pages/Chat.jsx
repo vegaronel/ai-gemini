@@ -76,60 +76,63 @@ export function Chat() {
   };
 
   return (
-    <Card className="w-full flex flex-col lg:max-w-lg md:max-w-lg  mx-auto  bg-slate-900 text-slate-100 border">
-      <CardHeader>
-        <CardTitle>ChatterBot</CardTitle>
-      </CardHeader>
-      <CardContent className="grow">
-        <ScrollArea className="h-[650px] md:h-[500px] pr-4">
-          {messages.map((message) => (
+    <Card className="w-full m-2 lg:max-w-lg h-screen md:max-w-lg mx-auto bg-slate-900 text-slate-100 border flex flex-col rounded-lg md:h-[600px]">
+    <CardHeader>
+      <CardTitle>ChatterBot</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-grow overflow-hidden">
+      <ScrollArea className="h-full pr-4">
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`flex mb-4 ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+          >
+            {message.sender === "other" && (
+              <Avatar className="mr-2">
+                <AvatarImage src="https://ui.shadcn.com/avatars/02.png" alt="Avatar" />
+                <AvatarFallback>Chat Bot</AvatarFallback>
+              </Avatar>
+            )}
             <div
-              key={message.id}
-              className={`flex mb-4 ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+              className={`rounded-lg p-2 max-w-[70%] ${
+                message.sender === "user"
+                  ? "bg-primary text-primary-foreground bg-slate-50 text-slate-900"
+                  : "bg-slate-700 text-slate-50"
+              }`}
             >
-              {message.sender === "other" && (
-                <Avatar className="mr-2">
-                  <AvatarImage src="https://ui.shadcn.com/avatars/02.png" alt="Avatar" />
-                  <AvatarFallback>Chat Bot</AvatarFallback>
-                </Avatar>
-              )}
-              <div
-                className={`rounded-lg p-2 max-w-[70%]  ${
-                  message.sender === "user" ? "bg-primary text-primary-foreground bg-slate-50 text-slate-900" : "bg-slate-700 text-slate-50"
-                }`}
-              >
-                {message.text}
-              </div>
-              {message.sender === "user" && (
-                <Avatar className="ml-2">
-                  <AvatarImage src="https://ui.shadcn.com/avatars/04.png" alt="Avatar" />
-                  <AvatarFallback>US</AvatarFallback>
-                </Avatar>
-              )}
+              {message.text}
             </div>
-          ))}
-        </ScrollArea>
-      </CardContent>
-      <CardFooter>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSendMessage();
-          }}
-          className="flex w-full gap-2"
-        >
-          <Input
-            placeholder="Type a message..."
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            className="flex-grow"
-            disabled={loading}
-          />
-          <Button className="rounded bg-slate-700" type="submit" disabled={loading}>
-            {loading ? "Sending..." : <SendHorizontal />}
-          </Button>
-        </form>
-      </CardFooter>
-    </Card>
+            {message.sender === "user" && (
+              <Avatar className="ml-2">
+                <AvatarImage src="https://ui.shadcn.com/avatars/04.png" alt="Avatar" />
+                <AvatarFallback>US</AvatarFallback>
+              </Avatar>
+            )}
+          </div>
+        ))}
+      </ScrollArea>
+    </CardContent>
+    <CardFooter className="border-t p-4 bg-slate-800 sticky rounded-b-lg">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSendMessage();
+        }}
+        className="flex w-full gap-2"
+      >
+        <Input
+          placeholder="Type a message..."
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          className="flex-grow"
+          disabled={loading}
+        />
+        <Button className="rounded bg-slate-700" type="submit" disabled={loading}>
+          {loading ? "Sending..." : <SendHorizontal />}
+        </Button>
+      </form>
+    </CardFooter>
+  </Card>
+  
   );
 }
