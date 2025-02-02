@@ -81,7 +81,7 @@ export function Chat() {
         <CardTitle>ChatterBot</CardTitle>
       </CardHeader>
       <CardContent className="grow">
-        <ScrollArea className="h-[600px] md:h-[500px] pr-4">
+        <ScrollArea className="h-[650px] md:h-[500px] pr-4">
           {messages.map((message) => (
             <div
               key={message.id}
