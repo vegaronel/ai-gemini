@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.5",
     "@radix-ui/react-scroll-area": "^1.2.2",
@@ -17,9 +18,12 @@
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.474.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-leaflet-draw": "^0.20.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
